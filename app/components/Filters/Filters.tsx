@@ -4,7 +4,7 @@ import React from "react"
 import styled from "styled-components"
 
 // Types
-import { DataType } from "../types"
+import { DataType } from "../../types"
 
 interface PropType {
   data: DataType
@@ -51,6 +51,7 @@ export const Filters: React.FC<PropType> = ({ data, filter, setFilter }) => {
       <FilterHeading>Filters</FilterHeading>
       <div>
         <FilterBox
+          data-testid="all-filter"
           onClick={() => setFilter("all")}
           style={
             filter === "all"
@@ -65,6 +66,7 @@ export const Filters: React.FC<PropType> = ({ data, filter, setFilter }) => {
           All <FilterCount>{data?.all?.length}</FilterCount>
         </FilterBox>
         <FilterBox
+          data-testid="results-filter"
           onClick={() => setFilter("results")}
           style={
             filter === "results"
@@ -79,6 +81,7 @@ export const Filters: React.FC<PropType> = ({ data, filter, setFilter }) => {
           Results <FilterCount>{data?.results?.length}</FilterCount>
         </FilterBox>
         <FilterBox
+          data-testid="live-filter"
           onClick={() => setFilter("live")}
           style={
             filter === "live"
@@ -93,6 +96,7 @@ export const Filters: React.FC<PropType> = ({ data, filter, setFilter }) => {
           Live <FilterCount>{data?.live?.length}</FilterCount>
         </FilterBox>
         <FilterBox
+          data-testid="upcoming-filter"
           onClick={() => setFilter("upcoming")}
           style={
             filter === "upcoming"

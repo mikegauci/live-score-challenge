@@ -4,7 +4,7 @@ import React from "react"
 import styled from "styled-components"
 
 // Types
-import { DataItemType } from "../types"
+import { DataItemType } from "../../types"
 
 // Circular Progressbar
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar"
@@ -177,10 +177,13 @@ export const Card: React.FC<PropType> = ({ card }) => {
   }
 
   return (
-    <CardComponent key={card?.id}>
-      <CountryText>{card?.country}</CountryText>
-      <CompetitionText>{card?.competition}</CompetitionText>
+    <CardComponent key={card?.id} data-testid="card">
+      <CountryText data-testid="country">{card?.country}</CountryText>
+      <CompetitionText data-testid="competitionText">
+        {card?.competition}
+      </CompetitionText>
       <StatusText
+        data-testid="statusText"
         style={{
           color: statusColor,
         }}
@@ -188,13 +191,13 @@ export const Card: React.FC<PropType> = ({ card }) => {
         {status}
       </StatusText>
 
-      <ScoreText>
+      <ScoreText data-testid="scoreText">
         {card?.homeScore?.current || 0} - {card?.awayScore?.current || 0}
       </ScoreText>
       <Teams>
-        <Team>{card?.homeTeam?.name}</Team>
-        <Progress>{circularProgressBar}</Progress>
-        <Team>{card?.awayTeam?.name}</Team>
+        <Team data-testid="homeTeamText">{card?.homeTeam?.name}</Team>
+        <Progress data-testid="progressBar">{circularProgressBar}</Progress>
+        <Team data-testid="awayTeamText">{card?.awayTeam?.name}</Team>
       </Teams>
     </CardComponent>
   )

@@ -11,8 +11,8 @@ import rawData from "./data.json"
 import { DataType, DataItemType } from "./types"
 
 // Components
-import { CardList } from "./components/CardList"
-import { Filters } from "./components/Filters"
+import { CardList } from "./components/CardList/CardList"
+import { Filters } from "./components/Filters/Filters"
 
 // Styled Components
 const MainComponent = styled.div`

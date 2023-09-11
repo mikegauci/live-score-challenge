@@ -1,13 +1,13 @@
 import React from "react"
 
 // Components
-import { Card } from "./Card"
+import { Card } from "../Card/Card"
 
 // Styled Components
 import styled from "styled-components"
 
 // Types
-import { DataItemType } from "../types"
+import { DataItemType } from "../../types"
 
 interface PropType {
   data: DataItemType[]
@@ -44,6 +44,8 @@ export const CardList: React.FC<PropType> = ({ data }) => {
         data?.map((card) => {
           return <Card key={card?.id} card={card} />
         })}
+
+      {data?.length === 0 && <div>No Data Available</div>}
     </CardListComponent>
   )
 }
